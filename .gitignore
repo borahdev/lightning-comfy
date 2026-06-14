@@ -1,0 +1,12 @@
+*
+
+!requirements.txt
+!config.py
+!main.py
+!start.sh
+!stop.sh
+!.lightning_studio/
+!.lightning_studio/on_start.sh
+!.lightning_studio/on_stop.sh
+!.gitignore
+

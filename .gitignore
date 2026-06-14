@@ -5,6 +5,9 @@
 !main.py
 !start.sh
 !stop.sh
+!setup_comfyui.py
+!custom_nodes.txt
+!models.txt
 !.lightning_studio/
 !.lightning_studio/on_start.sh
 !.lightning_studio/on_stop.sh

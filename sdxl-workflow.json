@@ -1,0 +1,192 @@
+{
+    "4": {
+        "inputs": {
+            "ckpt_name": "sd_xl_base_1.0_0.9vae.safetensors"
+        },
+        "class_type": "CheckpointLoaderSimple",
+        "_meta": {
+            "title": "Load Checkpoint - BASE"
+        }
+    },
+    "5": {
+        "inputs": {
+            "width": 768,
+            "height": 1344,
+            "batch_size": 1
+        },
+        "class_type": "EmptyLatentImage",
+        "_meta": {
+            "title": "Empty Latent Image"
+        }
+    },
+    "7": {
+        "inputs": {
+            "text": "photorealistic, 3D render, harsh lines, bright neon colors, flat colors, chibi, oversaturated, sharp edges, digital clean, ugly, blurry, low quality, text, watermark, extra limbs, bright even lighting, front lit face, clean smooth face, soft clouds, pastel colors, overexposed, monochromatic, single color palette, korean features, east asian features, anime eyes, monolid eyes, pale skin, asian facial structure, webtoon face, k-drama face, deformed face, disfigured, malformed face, asymmetrical face, bad anatomy, bad face, fused features, poorly drawn face, mutation, half face,\ncropped face, missing features, undefined face, smudged face, melting face",
+            "clip": [
+                "4",
+                1
+            ]
+        },
+        "class_type": "CLIPTextEncode",
+        "_meta": {
+            "title": "CLIP Text Encode (Prompt)"
+        }
+    },
+    "10": {
+        "inputs": {
+            "add_noise": "enable",
+            "noise_seed": 299692128851633,
+            "steps": 25,
+            "cfg": 9.1,
+            "sampler_name": "dpmpp_2m",
+            "scheduler": "karras",
+            "start_at_step": 0,
+            "end_at_step": 20,
+            "return_with_leftover_noise": "enable",
+            "model": [
+                "4",
+                0
+            ],
+            "positive": [
+                "50",
+                0
+            ],
+            "negative": [
+                "7",
+                0
+            ],
+            "latent_image": [
+                "5",
+                0
+            ]
+        },
+        "class_type": "KSamplerAdvanced",
+        "_meta": {
+            "title": "KSampler (Advanced) - BASE"
+        }
+    },
+    "11": {
+        "inputs": {
+            "add_noise": "disable",
+            "noise_seed": 0,
+            "steps": 25,
+            "cfg": 9.1,
+            "sampler_name": "dpmpp_2m",
+            "scheduler": "karras",
+            "start_at_step": 20,
+            "end_at_step": 1000,
+            "return_with_leftover_noise": "disable",
+            "model": [
+                "12",
+                0
+            ],
+            "positive": [
+                "57",
+                0
+            ],
+            "negative": [
+                "16",
+                0
+            ],
+            "latent_image": [
+                "10",
+                0
+            ]
+        },
+        "class_type": "KSamplerAdvanced",
+        "_meta": {
+            "title": "KSampler (Advanced) - REFINER"
+        }
+    },
+    "12": {
+        "inputs": {
+            "ckpt_name": "sd_xl_refiner_1.0_0.9vae.safetensors"
+        },
+        "class_type": "CheckpointLoaderSimple",
+        "_meta": {
+            "title": "Load Checkpoint - REFINER"
+        }
+    },
+    "16": {
+        "inputs": {
+            "text": "photorealistic, 3D render, harsh lines, bright neon colors, flat colors, chibi, oversaturated, sharp edges, digital clean, ugly, blurry, low quality, text, watermark, extra limbs, bright even lighting, front lit face, clean smooth face, soft clouds, pastel colors, overexposed, monochromatic, single color palette, korean features, east asian features, anime eyes, monolid eyes, pale skin, asian facial structure, webtoon face, k-drama face, deformed face, disfigured, malformed face, asymmetrical face, bad anatomy, bad face, fused features, poorly drawn face, mutation, half face,\ncropped face, missing features, undefined face, smudged face, melting face",
+            "clip": [
+                "12",
+                1
+            ]
+        },
+        "class_type": "CLIPTextEncode",
+        "_meta": {
+            "title": "CLIP Text Encode (Prompt)"
+        }
+    },
+    "17": {
+        "inputs": {
+            "samples": [
+                "11",
+                0
+            ],
+            "vae": [
+                "12",
+                2
+            ]
+        },
+        "class_type": "VAEDecode",
+        "_meta": {
+            "title": "VAE Decode"
+        }
+    },
+    "19": {
+        "inputs": {
+            "filename_prefix": "ComfyUI",
+            "images": [
+                "17",
+                0
+            ]
+        },
+        "class_type": "SaveImage",
+        "_meta": {
+            "title": "Save Image"
+        }
+    },
+    "50": {
+        "inputs": {
+            "width": 768,
+            "height": 1344,
+            "crop_w": 0,
+            "crop_h": 0,
+            "target_width": 768,
+            "target_height": 1344,
+            "text_g": "lofi anime illustration, painterly style, western animation art, gouache on textured canvas, warm amber and burnt orange color palette, deep teal and navy shadows, dramatic rim lighting, soft vignette edges, paper grain texture overlay, contemplative mood, emotional atmosphere, Studio Ghibli inspired, semi-realistic character design, brushstroke sky, golden hour lighting, melancholic aesthetic, portrait orientation, masterpiece, high quality, dramatic turbulent clouds, layered atmospheric depth, heavy vignette darkening edges, film grain overlay, slightly desaturated muted tones, detailed facial features, well defined face, symmetrical face, beautiful face, perfect anatomy, high detail portrait, sharp facial details",
+            "text_l": "person standing at large interior window, one hand pressed flat against the glass, pale morning light beginning to break outside, face half-turned toward the light, still posture, cool-to-warm tonal shift at window edge, medium shot, threshold moment, detailed face, close-up portrait,\nface in focus, sharp eyes, defined lips",
+            "clip": [
+                "4",
+                1
+            ]
+        },
+        "class_type": "CLIPTextEncodeSDXL",
+        "_meta": {
+            "title": "CLIPTextEncodeSDXL"
+        }
+    },
+    "57": {
+        "inputs": {
+            "width": 768,
+            "height": 1344,
+            "crop_w": 0,
+            "crop_h": 0,
+            "target_width": 768,
+            "target_height": 1344,
+            "text_g": "lofi anime illustration, painterly style, western animation art, gouache on textured canvas, warm amber and burnt orange color palette, deep teal and navy shadows, dramatic rim lighting, soft vignette edges, paper grain texture overlay, contemplative mood, emotional atmosphere, Studio Ghibli inspired, semi-realistic character design, brushstroke sky, golden hour lighting, melancholic aesthetic, portrait orientation, masterpiece, high quality, dramatic turbulent clouds, layered atmospheric depth, heavy vignette darkening edges, film grain overlay, slightly desaturated muted tones, detailed facial features, well defined face, symmetrical face, beautiful face, perfect anatomy, high detail portrait, sharp facial details",
+            "text_l": "person standing at large interior window, one hand pressed flat against the glass, pale morning light beginning to break outside, face half-turned toward the light, still posture, cool-to-warm tonal shift at window edge, medium shot, threshold moment, detailed face, close-up portrait,\nface in focus, sharp eyes, defined lips",
+            "clip": [
+                "12",
+                1
+            ]
+        },
+        "class_type": "CLIPTextEncodeSDXL",
+        "_meta": {
+            "title": "CLIPTextEncodeSDXL"
+        }
+    }
+}

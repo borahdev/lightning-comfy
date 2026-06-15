@@ -9,6 +9,7 @@
 !custom_nodes.txt
 !models.txt
 !.env.example
+!*-workflow.json
 !.lightning_studio/
 !.lightning_studio/on_start.sh
 !.lightning_studio/on_stop.sh

@@ -23,7 +23,7 @@ class GenerateRequest(BaseModel):
 class TTSRequest(BaseModel):
     text: str
     reference_audio: str = "Ex3CgfbeKBFX7UpLNV3DF_xqBVxHxU.mp3"
-    seed: int = 1880004348
+    seed: int = 2775345701
 
 def build_workflow(text_l: str, text_g: str, negative: str, no_distance: bool = False, seed: int | None = None):
     with open("sdxl-workflow.json", "r") as f:

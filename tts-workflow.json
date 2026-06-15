@@ -1,0 +1,144 @@
+{
+    "1": {
+        "inputs": {
+            "model_size": "1.7B",
+            "device": "auto",
+            "voice_preset": "None (Zero-shot / Custom)",
+            "language": "English",
+            "instruct": "",
+            "top_k": 50,
+            "top_p": 0.85,
+            "temperature": 0.6,
+            "repetition_penalty": 1.05,
+            "max_new_tokens": 2048,
+            "dtype": "bfloat16",
+            "attn_implementation": "sdpa",
+            "x_vector_only_mode": true,
+            "use_torch_compile": false,
+            "use_cuda_graphs": false,
+            "compile_mode": "default",
+            "asr_use_forced_aligner": true,
+            "asr_translate_target_language": "English",
+            "asr_translate_instruction_override": "Translate the speech from {source_language} into {target_language} text. Return only the translated text.",
+            "runtime_mode": "⚠️ Shared Runtime"
+        },
+        "class_type": "Qwen3TTSEngineNode",
+        "_meta": {
+            "title": "⚙️ Qwen3-TTS Engine"
+        }
+    },
+    "2": {
+        "inputs": {
+            "voice_name": "none",
+            "reference_text": "You've been staring at the same page for three hours. Nothing makes sense anymore. You told yourself this semester would be different. You'd keep up. You'd stay ahead.",
+            "opt_audio_input": [
+                "5",
+                0
+            ]
+        },
+        "class_type": "CharacterVoicesNode",
+        "_meta": {
+            "title": "🎭 Character Voices"
+        }
+    },
+    "3": {
+        "inputs": {
+            "text": "You thought you were barely holding on. Turns out you were already holding everything. You measured yourself by what you couldn't do. By what you hadn't become yet. Some nights you were so tired of trying. So tired of pretending it wasn't heavy. You wondered if the weight was all you'd ever know. And then it hit you. Not what you'd lost. What you'd carried it through. Every time you got back up. Every morning you moved forward anyway. Every quiet act of continuing. That was you. You were never as fragile as you feared. The whole time you were breaking, you were also becoming. Turns out you were holding everything.",
+            "narrator_voice": "none",
+            "seed": 2775345701,
+            "enable_chunking": true,
+            "max_chars_per_chunk": 300,
+            "chunk_combination_method": "concatenate",
+            "silence_between_chunks_ms": 150,
+            "enable_audio_cache": true,
+            "batch_size": 0,
+            "TTS_engine": [
+                "1",
+                0
+            ],
+            "opt_narrator": [
+                "2",
+                0
+            ]
+        },
+        "class_type": "UnifiedTTSTextNode",
+        "_meta": {
+            "title": "🎤 TTS Text"
+        }
+    },
+    "4": {
+        "inputs": {
+            "audioUI": "",
+            "audio": [
+                "3",
+                0
+            ]
+        },
+        "class_type": "PreviewAudio",
+        "_meta": {
+            "title": "Preview Audio"
+        }
+    },
+    "5": {
+        "inputs": {
+            "audio": "Ex3CgfbeKBFX7UpLNV3DF_xqBVxHxU.mp3",
+            "audioUI": "/api/view?filename=Ex3CgfbeKBFX7UpLNV3DF_xqBVxHxU.mp3&type=input&subfolder=&rand=0.19484398478670673"
+        },
+        "class_type": "LoadAudio",
+        "_meta": {
+            "title": "Load Audio"
+        }
+    },
+    "6": {
+        "inputs": {
+            "model": "large-v3",
+            "language": "English",
+            "prompt": "",
+            "audio": [
+                "3",
+                0
+            ]
+        },
+        "class_type": "Apply Whisper",
+        "_meta": {
+            "title": "Apply Whisper"
+        }
+    },
+    "7": {
+        "inputs": {
+            "source": [
+                "6",
+                2
+            ]
+        },
+        "class_type": "PreviewAny",
+        "_meta": {
+            "title": "Preview as Text"
+        }
+    },
+    "8": {
+        "inputs": {
+            "audio_path": "",
+            "audio": [
+                "3",
+                0
+            ]
+        },
+        "class_type": "Audio Duration",
+        "_meta": {
+            "title": "Audio - Duration"
+        }
+    },
+    "9": {
+        "inputs": {
+            "source": [
+                "8",
+                1
+            ]
+        },
+        "class_type": "PreviewAny",
+        "_meta": {
+            "title": "Preview as Text"
+        }
+    }
+}

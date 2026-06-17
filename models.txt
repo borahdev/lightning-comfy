@@ -1,2 +1,11 @@
+# Checkpoints
 ComfyUI/models/checkpoints/sd_xl_base_1.0_0.9vae.safetensors|https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/resolve/main/sd_xl_base_1.0_0.9vae.safetensors
 ComfyUI/models/checkpoints/sd_xl_refiner_1.0_0.9vae.safetensors|https://huggingface.co/stabilityai/stable-diffusion-xl-refiner-1.0/resolve/main/sd_xl_refiner_1.0_0.9vae.safetensors
+
+# VAE
+ComfyUI/models/vae/sdxl-vae-fp16-fix.safetensors|https://huggingface.co/madebyollin/sdxl-vae-fp16-fix/resolve/main/sdxl_vae.safetensors
+
+# LoRAs
+ComfyUI/models/loras/dreamyvibes-artstyle-sdxl.safetensors|https://huggingface.co/nerualdreming/Best_LoRas_Mar24/resolve/main/Dreamyvibes%20artstyle%20SDXL%20-%20Trigger%20with%20dreamyvibes%20artstyle.safetensors
+ComfyUI/models/loras/manga-lineart-sdxl.safetensors|https://huggingface.co/artificialguybr/LineAniRedmond-LinearMangaSDXL-V2/resolve/main/LineAniRedmondV2-LinearManga-LineAniAF.safetensors
+ComfyUI/models/loras/film-grain-sdxl.safetensors|https://huggingface.co/artificialguybr/filmgrain-redmond-filmgrain-lora-for-sdxl/resolve/main/FilmGrainRedmond-FilmGrain-FilmGrainAF.safetensors
